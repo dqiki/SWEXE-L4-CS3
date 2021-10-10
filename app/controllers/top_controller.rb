@@ -19,4 +19,13 @@ class TopController < ApplicationController
         session.delete(:login_uid)
         redirect_to root_path
     end
+    def create
+    user = User.find_by(uid: params[:uid])
+    if user && user.authenticate(params[:password])
+      session[:login_uid] = params[:uid]
+      redirect_to root_path
+    else
+      render 'login_failed'
+    end
+    end
 end
