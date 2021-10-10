@@ -1,5 +1,5 @@
 require 'bcrypt'
-signup_password = BCrypt::Password.create("sanriko")
+signup_password = BCrypt::Password.create("bbb")
 p signup_password
 login_password = BCrypt::Password.new(signup_password)
 p login_password
